@@ -14,6 +14,11 @@ app.use(express.json());
 app.use(cors()); // Enable CORS for all routes
 main().then(() => console.log("Connected to Mongo")).catch(err => console.log(err));
 
+app.get('/', async ( req, res) => {
+    res.status(200).send('Hello World !');
+  });
+
+
 async function main() {
     await mongoose.connect(process.env.MONGO_URL);
 }
